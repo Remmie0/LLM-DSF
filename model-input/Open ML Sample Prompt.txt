@@ -1,0 +1,40 @@
+Generate complete and runnable Python code (single script).
+
+Context:
+- The code will be executed in a clean container.
+- You MUST import all required packages yourself.
+- Do NOT use: if __name__ == "__main__"
+- Use the OpenML task to get the dataset, target, and the official CV splits so results are reproducible.
+
+
+Task details (from OpenML task description):
+- This is a multi-class classification task.
+- Target feature: task.target_name (expected: "target")
+- Evaluation protocol: 10-fold cross-validation (use the task-provided folds)
+- Primary evaluation measure: logloss
+
+Goal:
+Train and evaluate a classification pipeline on ALL 10 folds using the OpenML task splits and report mean logloss.
+
+# These lines are always loaded in for you and put before your code in the container
+import openml
+openml_task_id = 359963
+task = openml.tasks.get_task(openml_task_id)
+dataset = task.get_dataset()
+X, y, categorical_indicator, attribute_names = dataset.get_data(target=task.target_name, dataset_format="dataframe")
+
+
+Mandatory OpenML loading + CV split code:
+# folding logic
+for fold in range(10):
+    train_indices, test_indices = task.get_train_test_split_indices(fold=fold)
+    # create X_train, X_test, y_train, y_test using .iloc with these indices
+
+Important constraints:
+- Do NOT change the split procedure; use the OpenML task indices.
+- Ensure the target is task.target_name (should be "target" here), not hard-coded to other names.
+
+Output formatting:
+- Print per-fold logloss.
+- Print mean logloss and std.
+- Print the selected model name and hyperparameters.

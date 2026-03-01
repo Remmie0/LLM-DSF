@@ -1,0 +1,20 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+
+-   repo: local
+    hooks:
+    -   id: pytest-check
+        name: pytest-check
+        entry: /home/res/miniconda3/envs/pyenv-gpu/bin/pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-commit]
+        # Run tests verbosely but with shorter tracebacks
+        args: ['-v', '--tb=short']
