@@ -21,9 +21,9 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     "mode": "single",
 
     # Paths 
-    "model_path": "models/DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
-    "data_file": "model-input/KNMI Hard/KNMI_20191231.csv",
-    "prompt_file": "model-input/KNMI Hard/prompt feature models.txt",
+    "model_path": "path to yout model file (e.g., .gguf)",
+    "data_file": "model-input/path to your data file (e.g., .csv or .json)",
+    "prompt_file": "model-input/path to your task prompt file (e.g., .txt)",
     "feedback_file": "models/feedback prompt/prompt_5.txt",
 
     # Model settings

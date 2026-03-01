@@ -89,6 +89,12 @@ To use API-based models, create a `.env` file in the repository root and set at 
 
 ## Repository structure
 
+- `logging/`
+  Writes all the logs at this location by default.
+- `model-input/`  
+  Example prompt and the folder I used for input of both data and prompts.
+- `models/`  
+  Location I used for the models, also has the prompts for the feedback mechanism.
 - `src/LLM_DSF/`  
   Core framework modules (LLM abstraction, input parsing, code parsing, container execution, logging, experiments).
 - `main.py`  
@@ -97,9 +103,8 @@ To use API-based models, create a `.env` file in the repository root and set at 
   Conda environment definition used for the thesis experiments.
 - `Dockerfile`  
   Defines the Docker image used for sandboxed execution.
-- `model-input/`  
-  Example prompt and the folder I used for input of both data and prompts.
-- `tests/` Unit tests for key components.
+- `tests/`
+  Unit tests for key components.
 
 If you reorganize directories, keep paths in `main.py` and your prompts consistent.
 
