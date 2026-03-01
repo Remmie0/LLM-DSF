@@ -19,8 +19,8 @@ Optional, depending on your use case:
 ## 1. Clone the repository
 
 ```bash
-git clone <your-public-repository-url>
-cd <repository-directory>
+git clone https://github.com/Remmie0/LLM-DSF.git
+cd LLM-DSF
 ```
 
 ## 2. Create and activate the conda environment
